@@ -16,13 +16,14 @@ g++ sample.cpp myfile.cpp -o sample.out
 ```cpp
 int main() {
   OutMyFile outfile("data/sample.txt");
-  outfile.out(N, x);
+  outfile.out(x);
   return 0;
 }
 ```
 
 こうすることで，data/sample.txtに配列数Nの配列xを改行しながら書き込む．
 数値計算するときは事前に配列数がわかっていることが多い．
+ofstreamで逐一ファイルに書き込む方がコスト的には安いが，OutMyFileでは配列で渡すことによってコードが整理されて見やすくなる．
 
 次に，InMyFileを使ってみる．
 

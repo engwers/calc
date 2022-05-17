@@ -4,33 +4,33 @@
 #include <string>
 #include "myfile.hpp"
 
-OutMyFile::OutMyFile(const std::filesystem::path &path) : file_path(path) {
+OutMyFile::OutMyFile(const int n, const std::filesystem::path &path) : N(n), file_path(path) {
 	return;
 }
 
-void OutMyFile::out(const int n, const double * const val) const {
+void OutMyFile::out(const double * const val) const {
 
 	std::ofstream outfile(file_path);
 
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < N; ++i) {
 		outfile << val[i] << std::endl;
 	}
 
 	return;
 }
 
-void OutMyFile::out(const int n, const double * const xval, const double * const yval) const {
+void OutMyFile::out(const double * const xval, const double * const yval) const {
 
 	std::ofstream outfile(file_path);
 
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < N; ++i) {
 		outfile << xval[i] << " " << std::endl;
 	}
 
 	return;
 }
 
-InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), n(getNum()) {
+InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum()) {
 
 	std::ifstream infile(file_path);
 	 
@@ -39,8 +39,8 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), n(getNum
 		return;
 	}
 
-	arr = new double[n];
-	for (int i = 0; i < n; ++i) {
+	arr = new double[N];
+	for (int i = 0; i < N; ++i) {
 		infile >> arr[i];
 	}
 	infile.close();
@@ -56,7 +56,7 @@ InMyFile::~InMyFile() {
 }
 
 inline bool InMyFile::check_index(const int idx) const {
-	if ((idx < 0) || (n <= idx)) return false;
+	if ((idx < 0) || (N <= idx)) return false;
 	return true;
 }
 

@@ -10,8 +10,8 @@ int main() {
 		x[i] = 0.01 + i;
 	}
 
-	OutMyFile outfile("data/sample.txt");
-	outfile.out(N, x);
+	OutMyFile outfile(N, "data/sample.txt");
+	outfile.out(x);
 
 	const InMyFile y("data/sample.txt");
 	std::cout << y(23) << std::endl;

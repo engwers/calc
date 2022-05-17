@@ -7,15 +7,16 @@
 class OutMyFile {
 	
 	public:
-		OutMyFile(const std::filesystem::path &path);
+		OutMyFile(const int n, const std::filesystem::path &path);
 
 	public:
-		void out(const int n, const double * const val) const;
-		void out(const int n, const int *index, const double *val) const;
-		void out(const int n, const double * const xval, const double * const yval) const;
+		void out(const double * const val) const;
+		void out(const int *index, const double *val) const;
+		void out(const double * const xval, const double * const yval) const;
 	 
 	private:
 		const std::filesystem::path file_path;
+		const int N;
 };
 
 class InMyFile {
@@ -31,7 +32,7 @@ class InMyFile {
 
 	private:
 		const std::filesystem::path file_path;
-		const int n;
+		const int N;
 		double *arr;
 
 };
