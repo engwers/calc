@@ -39,7 +39,7 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum
 		return;
 	}
 
-	arr = new double[N];
+  arr = new double[N];
 	for (int i = 0; i < N; ++i) {
 		infile >> arr[i];
 	}
