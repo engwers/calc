@@ -1,14 +1,14 @@
 #include <iostream>
 
-double f(const double * const arr) { // 値だけ使いたいとき
+double f(const double * const arr) { 
 	return arr[1];
 }
 
-double g(const double * const &arr) { // 変更させたくないとき 参照を使う必要はなく，fで十分
+double g(const double * const &arr) { // 値だけ使いたいなら二度手間
 	return arr[1];
 }
 
-double h(double * const &arr) { // 変更がarrの参照先に反映される
+double h(double * const &arr) { 
 	arr[1] = 5.;  
 	return arr[1];
 }
@@ -18,8 +18,8 @@ int main() {
 	x[0] = 2.;
 	x[1] = 2.3;
 
-	std::cout << f(x) << std::endl;
-	std::cout << g(x) << std::endl;
-	std::cout << h(x) << std::endl;  
-	std::cout << x[1] << std::endl;
+	std::cout << f(x) << std::endl;  // 2.3
+	std::cout << g(x) << std::endl;  // 2.3
+	std::cout << h(x) << std::endl;  // 5
+	std::cout << x[1] << std::endl;  // 5
 }
