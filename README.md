@@ -15,7 +15,7 @@ g++ sample.cpp myfile.cpp -o sample.out
 
 ```cpp
 int main() {
-  OutMyFile outfile("data/sample.txt");
+  OutMyFile outfile(N, "data/sample.txt");
   outfile.out(x);
   return 0;
 }
