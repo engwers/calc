@@ -49,7 +49,9 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), n(getNum
 }
 
 InMyFile::~InMyFile() {
-	delete[] arr;
+	if (arr != nullptr) {
+		delete[] arr;
+	}
 	return;
 }
 
