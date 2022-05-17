@@ -11,7 +11,7 @@ main関数をもつsample.cppと一緒にmyfile.cppをコンパイルする．
 g++ sample.cpp myfile.cpp -o sample.out
 ```
 
-sample.cpp内で下のように使う．
+まずは，OutMyFileを使ってみよう．
 
 ```cpp
 int main() {
@@ -21,7 +21,10 @@ int main() {
 }
 ```
 
-data/sample.txtに配列数Nの配列xを改行しながら書き込む．
+こうすることで，data/sample.txtに配列数Nの配列xを改行しながら書き込む．
+数値計算するときは事前に配列数がわかっていることが多い．
+
+次に，InMyFileを使ってみる．
 
 ```cpp
 int main() {
@@ -38,3 +41,8 @@ data/sample.txtから読み取った配列にoperator()でアクセスする．
 
 計算で用いる数値はバイナリで受け渡しするので，InMyFileクラスによって読み取った数値を計算に使ってはならない．
 例えばInMyFileで読み取った数値はグラフの描画などに用いるとよい．
+
+## 数値積分
+
+簡単に数値積分を試すことができる．
+特異点が積分区間内や端に含まれている場合，とんでもない値を追いかける可能性があることに注意する．
