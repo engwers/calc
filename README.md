@@ -4,4 +4,9 @@
 
 ## myfile（ファイル入出力プログラム）
 
+```cpp
 g++ sample.cpp myfile.cpp -o sample.out
+```
+
+計算で用いる数値はバイナリで受け渡しするので，InMyFileクラスによって読み取った数値を計算に使ってはならない．
+例えばInMyFileで読み取った数値はグラフの描画などに用いるとよい．
