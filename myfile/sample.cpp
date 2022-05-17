@@ -10,11 +10,11 @@ int main() {
 		x[i] = 0.01 + i;
 	}
 
-	OutMyFile outfile("data/gomi.txt");
+	OutMyFile outfile("data/sample.txt");
 	outfile.out(N, x);
 
-	const InMyFile y("data/gomi.txt");
-	std::cout << y(2000) << std::endl;
+	const InMyFile y("data/sample.txt");
+	std::cout << y(23) << std::endl;
 
 	return 0;
 

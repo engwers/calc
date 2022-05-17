@@ -1,6 +1,7 @@
 # calc
+
 数値計算支援ライブラリ群
 
-## myfile
-ファイル入出力用プログラム
-InMyFileで受け取った数値を計算で使わないように（計算に使う数値はバイナリで受け渡しする）
+## myfile（ファイル入出力プログラム）
+
+g++ sample.cpp myfile.cpp -o sample.out
