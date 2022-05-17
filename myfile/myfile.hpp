@@ -25,6 +25,7 @@ class InMyFile {
 		~InMyFile();
 
 	public:
+		inline bool check_index(const int idx) const;
 		int getNum() const;
 		double operator() (const int m) const;
 

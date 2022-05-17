@@ -50,6 +50,12 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), n(getNum
 
 InMyFile::~InMyFile() {
 	delete[] arr;
+	return;
+}
+
+inline bool InMyFile::check_index(const int idx) const {
+	if ((idx < 0) || (n <= idx)) return false;
+	return true;
 }
 
 int InMyFile::getNum() const{
@@ -66,7 +72,10 @@ int InMyFile::getNum() const{
 	return count;
 }
 
-double InMyFile::operator() (const int m) const {
-	if ((m < 0) || (n <= m)) {std::cout << "index out of range" << std::endl;}
-	return arr[m];
+double InMyFile::operator() (const int idx) const {
+	if(!check_index(idx)) {
+		std::cout << "error: out of index" << std::endl;
+		return 0;
+	}
+	return arr[idx];
 }
