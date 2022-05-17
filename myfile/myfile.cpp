@@ -24,7 +24,7 @@ void OutMyFile::out(const double * const xval, const double * const yval) const 
   std::ofstream outfile(file_path);
 
   for (int i = 0; i < N; ++i) {
-    outfile << xval[i] << " " << std::endl;
+    outfile << xval[i] << " " << yval[i] << std::endl;
   }
 
   return;
