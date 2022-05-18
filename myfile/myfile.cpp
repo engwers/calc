@@ -48,19 +48,15 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum
     exit(1);
   }
 
-	arr = new double[N];
-  for (int i = 0; i < N; ++i) {
-    infile >> arr[i];
-  }
+  arr = new double[N];
+  for (int i = 0; i < N; ++i) infile >> arr[i];
   infile.close();
 
   return;
 }
 
 InMyFile::~InMyFile() {
-  if (arr != nullptr) {
-    delete[] arr;
-  }
+  if (arr != nullptr) delete[] arr;
   return;
 }
 
