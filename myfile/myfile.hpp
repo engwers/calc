@@ -33,7 +33,7 @@ class InMyFile {
 
   private:
     const std::filesystem::path file_path;
-    const int N;
+    const unsigned int N;
     double *arr = nullptr;
 
 };
