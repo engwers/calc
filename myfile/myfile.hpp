@@ -11,7 +11,8 @@ class OutMyFile {
 
   public:
     void out(const double * const val) const;
-    void out(const int *index, const double *val) const;
+
+    void out(const int * const index, const double * const val) const;
     void out(const double * const xval, const double * const yval) const;
 	 
   private:
