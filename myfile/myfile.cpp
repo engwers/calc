@@ -11,7 +11,8 @@ OutMyFile::OutMyFile(const int n, const std::filesystem::path &path) : N(n), fil
 void OutMyFile::out(const double * const val) const {
 
   std::ofstream outfile(file_path);
-  outfile << std::setprecision(std::numeric_limits<double>::max_digits10) << std::showpoint;
+  outfile << std::setprecision(std::numeric_limits<double>::max_digits10) 
+          << std::showpoint;
 
   for (int i = 0; i < N; ++i) {
     outfile << val[i] << std::endl;
@@ -23,7 +24,8 @@ void OutMyFile::out(const double * const val) const {
 void OutMyFile::out(const double * const xval, const double * const yval) const {
 
   std::ofstream outfile(file_path);
-  outfile << std::setprecision(std::numeric_limits<double>::max_digits10) << std::showpoint;
+  outfile << std::setprecision(std::numeric_limits<double>::max_digits10) 
+          << std::showpoint;
   
   for (int i = 0; i < N; ++i) {
     outfile << xval[i] << " " << yval[i] << std::endl;
