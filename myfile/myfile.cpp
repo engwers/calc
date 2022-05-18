@@ -41,10 +41,8 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum
   std::ifstream infile(file_path);
 
   try {
-    if(!infile) {
-      throw std::invalid_argument("file error: ");
-    }
-  }
+    if(!infile) throw std::invalid_argument("file error: ");
+  } 
   catch (std::exception &e) {
     std::cerr << e.what() << "cannot open " << file_path << std::endl;
     exit(1);
