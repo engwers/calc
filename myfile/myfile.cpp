@@ -60,9 +60,12 @@ InMyFile::~InMyFile() {
   return;
 }
 
-inline bool InMyFile::check_index(const int idx) const {
-  if ((idx < 0) || (N <= idx)) return false;
-  return true;
+inline void InMyFile::check_index(const int idx) const {
+  if ((idx < 0) || (N <= idx)) {
+    std::cerr << "error: out of range" << std::endl;
+    exit(1);
+  }
+  return;
 }
 
 int InMyFile::getNum() const{
@@ -80,9 +83,6 @@ int InMyFile::getNum() const{
 }
 
 double InMyFile::operator() (const int idx) const {
-  if(!check_index(idx)) {
-    std::cerr << "error: out of range" << std::endl;
-    exit(1);
-  }
+  check_index(idx); 
   return arr[idx];
 }
