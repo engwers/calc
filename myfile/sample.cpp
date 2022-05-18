@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cmath>
 #include "myfile.hpp"
 
 int main() {
@@ -7,7 +9,7 @@ int main() {
   x = new double[N];
 
   for (int i = 0; i < N; ++i) {
-    x[i] = 0.01 + i;
+    x[i] =  M_PI * i;
   }
 
   OutMyFile outfile(N, "data/sample.txt");
