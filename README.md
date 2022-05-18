@@ -14,6 +14,8 @@ g++ sample.cpp myfile.cpp -o sample.out
 まずは，OutMyFileを使ってみよう．
 
 ```cpp
+#include <iostream>
+
 int main() {
   OutMyFile outfile("data/sample.txt");
   outfile.out(N, x);
@@ -26,6 +28,8 @@ data/sample.txtに配列数Nの配列xを改行しながら書き込む．
 ofstreamで逐一ファイルに書き込む方がコスト的には安いが，OutMyFileでは配列で渡すことができるのでコードが整理されて見やすくなる．
 
 ```cpp
+#include <iostream>
+
 int main() {
   outfile.out(x, y)
   return 0;
@@ -37,6 +41,8 @@ int main() {
 次に，InMyFileを使ってみる．
 
 ```cpp
+#include <iostream>
+
 int main() {
   const InMyFile y("data/sample.txt");
   std::cout << y(23) << std::endl;
