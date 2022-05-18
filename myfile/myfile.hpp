@@ -35,7 +35,6 @@ class InMyFile {
     const std::filesystem::path file_path;
     const unsigned int N;
     double *arr = nullptr;
-
 };
 
 #endif 
