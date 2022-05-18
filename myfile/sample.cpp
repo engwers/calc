@@ -15,7 +15,7 @@ int main() {
   OutMyFile outfile(N, "data/sample.txt");
   outfile.out(x);
 
-  const InMyFile y("data/sample.txt");
+  const InMyFile y("data/smple.txt");
   std::cout << y(23) << std::endl;
 
   return 0;

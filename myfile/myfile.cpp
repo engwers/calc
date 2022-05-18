@@ -2,6 +2,7 @@
 #include <fstream>
 #include <filesystem>
 #include <string>
+#include <exception>
 #include "myfile.hpp"
 
 OutMyFile::OutMyFile(const int n, const std::filesystem::path &path) : N(n), file_path(path) {
@@ -38,10 +39,15 @@ void OutMyFile::out(const T * const xval, const double * const yval) const {
 InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum()) {
 
   std::ifstream infile(file_path);
-	 
-  if (!infile) {
-	  std::cout << "cannot open" << std::endl;
-  	return;
+
+  try {
+    if(!infile) {
+      throw std::invalid_argument("file error: ");
+    }
+  }
+  catch (std::exception &e) {
+    std::cerr << e.what() << "cannot open " << file_path << std::endl;
+    exit(1);
   }
 
 	arr = new double[N];
@@ -62,7 +68,7 @@ InMyFile::~InMyFile() {
 
 inline void InMyFile::check_index(const int idx) const {
   if ((idx < 0) || (N <= idx)) {
-    std::cerr << "error: out of range" << std::endl;
+    std::cerr << "index error: out of range" << std::endl;
     exit(1);
   }
   return;
