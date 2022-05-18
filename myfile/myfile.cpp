@@ -21,7 +21,8 @@ void OutMyFile::out(const double * const val) const {
   return;
 }
 
-void OutMyFile::out(const double * const xval, const double * const yval) const {
+template <typename T>
+void OutMyFile::out(const T * const xval, const double * const yval) const {
 
   std::ofstream outfile(file_path);
   outfile << std::setprecision(std::numeric_limits<double>::max_digits10) 
@@ -80,8 +81,8 @@ int InMyFile::getNum() const{
 
 double InMyFile::operator() (const int idx) const {
   if(!check_index(idx)) {
-    std::cout << "error: out of index" << std::endl;
-    return 0;
+    std::cerr << "error: out of range" << std::endl;
+    exit(1);
   }
   return arr[idx];
 }

@@ -12,8 +12,9 @@ class OutMyFile {
   public:
     void out(const double * const val) const;
 
-    void out(const int * const index, const double * const val) const;
-    void out(const double * const xval, const double * const yval) const;
+    template <typename T>
+    void out(const T * const xval, const double * const yval) const;
+    // void out(const double * const xval, const double * const yval) const;
 	 
   private:
     const std::filesystem::path file_path;
@@ -34,7 +35,7 @@ class InMyFile {
   private:
     const std::filesystem::path file_path;
     const int N;
-    double *arr;
+    double *arr = nullptr;
 
 };
 
