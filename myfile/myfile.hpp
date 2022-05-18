@@ -7,18 +7,17 @@
 class OutMyFile {
 	
   public:
-    OutMyFile(const int n, const std::filesystem::path &path);
+    OutMyFile(const std::filesystem::path &path);
 
   public:
-    void out(const double * const val) const;
+    void out(int N, const double * const val) const;
 
     template <typename T>
-    void out(const T * const xval, const double * const yval) const;
+    void out(int N, const T * const xval, const double * const yval) const;
     // void out(const double * const xval, const double * const yval) const;
 	 
   private:
     const std::filesystem::path file_path;
-    const int N;
 };
 
 class InMyFile {

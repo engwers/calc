@@ -5,11 +5,11 @@
 #include <exception>
 #include "myfile.hpp"
 
-OutMyFile::OutMyFile(const int n, const std::filesystem::path &path) : N(n), file_path(path) {
+OutMyFile::OutMyFile(const std::filesystem::path &path) : file_path(path) {
   return;
 }
 
-void OutMyFile::out(const double * const val) const {
+void OutMyFile::out(int N, const double * const val) const {
 
   std::ofstream outfile(file_path);
   outfile << std::setprecision(std::numeric_limits<double>::max_digits10) 
@@ -23,7 +23,7 @@ void OutMyFile::out(const double * const val) const {
 }
 
 template <typename T>
-void OutMyFile::out(const T * const xval, const double * const yval) const {
+void OutMyFile::out(int N, const T * const xval, const double * const yval) const {
 
   std::ofstream outfile(file_path);
   outfile << std::setprecision(std::numeric_limits<double>::max_digits10) 
@@ -41,7 +41,7 @@ InMyFile::InMyFile(const std::filesystem::path &path) :file_path(path), N(getNum
   std::ifstream infile(file_path);
 
   try {
-    if(!infile) throw std::invalid_argument("file error: ");
+    if(!infile) throw std::invalid_argument("file path error: ");
   } 
   catch (std::exception &e) {
     std::cerr << e.what() << "cannot open " << file_path << std::endl;

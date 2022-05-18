@@ -12,10 +12,10 @@ int main() {
     x[i] =  M_PI * i;
   }
 
-  OutMyFile outfile(N, "data/sample.txt");
-  outfile.out(x);
+  OutMyFile outfile("data/sample.txt");
+  outfile.out(N, x);
 
-  const InMyFile y("data/smple.txt");
+  const InMyFile y("data/sample.txt");
   std::cout << y(23) << std::endl;
 
   return 0;
